@@ -6,9 +6,13 @@ description: |
   Big description next time
 
 grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+apps:
+  hello:
+    command: bin/hello
 
 parts:
-  my-part:
-    # See 'snapcraft plugins'
-    plugin: nil
+  gnu-hello:
+    source: http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
+    plugin: autotools
